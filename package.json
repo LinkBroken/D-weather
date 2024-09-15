@@ -1,0 +1,20 @@
+{
+  "name": "d-weather",
+  "version": "1.0.0",
+  "description": "Weather Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:dev": "webpack-dev-server"
+  },
+  "author": "Omer",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^9.10.0",
+    "webpack": "^5.94.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}
