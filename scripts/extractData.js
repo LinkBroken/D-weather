@@ -27,12 +27,6 @@ function extractDescription(current) {
   weatherDescription.classList.add("weather-description");
   weatherDescription.innerHTML = `Weather Description: ${current.weather_descriptions[0]}`;
 
-  const windDetails = document.createElement("div");
-  windDetails.classList.add("wind-details");
-
-  const windDescription = document.createElement("p");
-  windDescription.classList.add("wind-description");
-  windDescription.innerHTML = `Wind Description: ${current.wind_dir}`;
 
   const humidity = document.createElement("p");
   humidity.classList.add("humidity");

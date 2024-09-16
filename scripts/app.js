@@ -1,5 +1,5 @@
-function API(word) {
-  const api = fetch(
+async function API(word) {
+  const api = await fetch(
     `https://api.weatherstack.com/current?access_key=0c925055acf0ff6c8dd8ceba26f9867d&query=${word}`
   )
     .then((response) => response.json())
