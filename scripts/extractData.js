@@ -27,7 +27,6 @@ function extractDescription(current) {
   weatherDescription.classList.add("weather-description");
   weatherDescription.innerHTML = `Weather Description: ${current.weather_descriptions[0]}`;
 
-
   const humidity = document.createElement("p");
   humidity.classList.add("humidity");
   humidity.innerHTML = `Humidity: ${current.humidity}%`;
@@ -39,17 +38,23 @@ function extractDescription(current) {
   description.appendChild(temperatureDetails);
 
   const currentWeather = current.weather_descriptions[0].toLowerCase();
-  if (currentWeather.includes("cloudy")) {
-    document.body.style.backgroundImage =
-      "url(https://c.wallhere.com/photos/25/51/rain_clouds_felder_wolken_fields_thunderstorm_gewitter_regen-1101296.jpg!d)";
-  } else if (currentWeather.includes("sunny")) {
-    document.body.style.backgroundImage =
-      "url(https://www.talkiesmagazine.nl/wp-content/uploads/2020/05/deze-zonnebrand-werkt-wel-lekker-op-het-gezicht-min-scaled.jpg)";
-  } else if (currentWeather.includes("rain")) {
-    document.body.style.backgroundImage =
-      "url(https://pogodnik.com/wp-content/uploads/2021/12/ship_wall-1-e1639153361873.jpg)";
-  } else if (currentWeather.includes("snow")) {
-    document.body.style.backgroundImage =
-      "url(https://i.pinimg.com/originals/6d/58/07/6d5807d4be8c4df4ba331de42662af48.jpg";
+
+  chgBackgroundBasedOnWeather(currentWeather);
+}
+
+function chgBackgroundBasedOnWeather(weather) {
+  let backgroundImages = {
+    cloudy:
+      "url(https://c.wallhere.com/photos/25/51/rain_clouds_felder_wolken_fields_thunderstorm_gewitter_regen-1101296.jpg!d)",
+    sunny:
+      "url(https://www.talkiesmagazine.nl/wp-content/uploads/2020/05/deze-zonnebrand-werkt-wel-lekker-op-het-gezicht-min-scaled.jpg)",
+    rain: "url(https://pogodnik.com/wp-content/uploads/2021/12/ship_wall-1-e1639153361873.jpg)",
+    snow: "url(https://i.pinimg.com/originals/6d/58/07/6d5807d4be8c4df4ba331de42662af48.jpg",
+  };
+  const bodyStyle = document.body.style;
+  for (const curWeather in backgroundImages) {
+    if (weather.includes(curWeather)) {
+      bodyStyle.backgroundImage = backgroundImages[curWeather];
+    }
   }
 }

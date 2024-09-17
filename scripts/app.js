@@ -24,6 +24,7 @@ async function API(word) {
         document
           .querySelector(".description")
           .removeChild(document.querySelector(".temperature-details"));
+
         setTimeout(() => {
           extractLocation(data.location);
           extractDescription(data.current);
